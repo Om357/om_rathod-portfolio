@@ -22,21 +22,49 @@ const ContactSection = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  // 
+  // In your ContactSection.tsx file
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
+  try {
+    const response = await fetch('/api/send', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
     });
 
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    const result = await response.json();
+
+    if (response.ok) {
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } else {
+      // Handle server-side errors
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: result.message || "There was a problem sending your message.",
+      });
+    }
+  } catch (error) {
+    // Handle network errors
+    toast({
+      variant: "destructive",
+      title: "Network Error",
+      description: "Could not connect to the server. Please try again later.",
+    });
+  } finally {
     setIsSubmitting(false);
-  };
+  }
+};
 
   const contactInfo = [
     {
