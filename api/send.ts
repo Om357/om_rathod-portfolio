@@ -1,30 +1,22 @@
-// api/send.ts
-// IMPORTANT: This file must be in the ROOT `/api` folder, not in `/src/pages/api`
 
-import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { Resend } from 'resend';
 
 // Your API key is read from the Vercel environment variables
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export default async function handler(
-  request: VercelRequest,
-  response: VercelResponse
-) {
-  // Only allow POST requests
-  if (request.method !== 'POST') {
-    return response.status(405).json({ message: 'Method Not Allowed' });
-  }
-
-  // Get the data from the form submission
-  const { name, email, subject, message } = request.body;
-
-  // Basic validation
-  if (!name || !email || !subject || !message) {
-    return response.status(400).json({ message: 'All fields are required.' });
-  }
-
+export async function POST(request: Request) {
   try {
+    // Get the data from the form submission
+    const { name, email, subject, message } = await request.json();
+
+    // Basic validation
+    if (!name || !email || !subject || !message) {
+      return new Response(JSON.stringify({ message: 'All fields are required.' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
     // Send the email using Resend
     const { data, error } = await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>',
@@ -44,14 +36,23 @@ export default async function handler(
     // Handle any errors from the Resend API
     if (error) {
       console.error({ error });
-      return response.status(500).json({ message: 'Error sending email.', details: error.message });
+      return new Response(JSON.stringify({ message: 'Error sending email.', details: error.message }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' },
+      });
     }
 
     // Success!
-    return response.status(200).json({ message: 'Email sent successfully!' });
+    return new Response(JSON.stringify({ message: 'Email sent successfully!' }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
 
   } catch (exception) {
     console.error(exception);
-    return response.status(500).json({ message: 'An unexpected server error occurred.' });
+    return new Response(JSON.stringify({ message: 'An unexpected server error occurred.' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 }

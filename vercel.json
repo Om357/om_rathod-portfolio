@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "api/send.ts": {
-      "runtime": "@vercel/node"
-    }
-  }
-}
