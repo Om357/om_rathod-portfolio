@@ -25,47 +25,42 @@ const ContactSection = () => {
   // 
   // In your ContactSection.tsx file
 
+  
+// In your ContactSection.tsx file
+
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   setIsSubmitting(true);
 
+  // We will still ATTEMPT to send the form data in the background.
+  // This way, if the Vercel issue ever resolves itself, the form will start working.
   try {
-    const response = await fetch('/api/send', {
+    await fetch('/api/send', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(formData),
     });
-
-    const result = await response.json();
-
-    if (response.ok) {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
-      });
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    } else {
-      // Handle server-side errors
-      toast({
-        variant: "destructive",
-        title: "Uh oh! Something went wrong.",
-        description: result.message || "There was a problem sending your message.",
-      });
-    }
   } catch (error) {
-    // Handle network errors
-    toast({
-      variant: "destructive",
-      title: "Network Error",
-      description: "Could not connect to the server. Please try again later.",
-    });
+    // This CATCH block is now empty on purpose. We are ignoring any errors.
+    // We can log the error to the console for our own debugging, but the user will not see it.
+    console.error("Backend call failed (ignoring error as requested):", error);
   } finally {
-    setIsSubmitting(false);
+    // This FINALLY block will run EVERY time, whether the send succeeded or failed.
+    
+    // 1. Show the success message to the user.
+    toast({
+      title: "Message sent!",
+      description: "Thank you for reaching out. I'll get back to you soon.",
+    });
+
+    // 2. After a 2-second delay, reload the page.
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000); // 2000 milliseconds = 2 seconds
   }
 };
-
   const contactInfo = [
     {
       icon: Mail,
