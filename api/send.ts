@@ -30,7 +30,7 @@ export default async function handler(
       from: 'Portfolio Contact <onboarding@resend.dev>',
       to: ['om.rathod2004.or@gmail.com'], // This is YOUR email address
       subject: `New Portfolio Message: ${subject}`,
-      reply_to: email, // This allows you to directly reply to the person who contacted you
+      replyTo: email, // This allows you to directly reply to the person who contacted you
       html: `
         <h1>New Message from your Portfolio Contact Form</h1>
         <p><strong>Name:</strong> ${name}</p>
