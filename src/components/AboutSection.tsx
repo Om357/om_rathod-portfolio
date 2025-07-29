@@ -1,97 +1,55 @@
-import { Card, CardContent } from '@/components/ui/card';
-import { Code, Palette, Zap, Users } from 'lucide-react';
+// src/components/AboutSection.tsx
+import { Cpu, Code, Lightbulb, CheckCircle } from 'lucide-react';
+import profilePhoto from '@/assets/profile_photo.png'; // Your photo
 
 const AboutSection = () => {
-  const highlights = [
-    {
-      icon: Code,
-      title: 'Clean Code',
-      description: 'Writing maintainable, scalable code following best practices'
-    },
-    {
-      icon: Palette,
-      title: 'Design Focus',
-      description: 'Creating beautiful, user-centered interfaces and experiences'
-    },
-    {
-      icon: Zap,
-      title: 'Performance',
-      description: 'Optimizing applications for speed and efficiency'
-    },
-    {
-      icon: Users,
-      title: 'Collaboration',
-      description: 'Working effectively in teams and with stakeholders'
-    }
-  ];
-
   return (
-    <section id="about" className="py-20 bg-secondary/30">
+    <section id="about" className="pt-20 md:pt-32">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          {/* Section header */}
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              About Me
-            </h2>
-            <div className="w-24 h-1 bg-gradient-primary mx-auto mb-8"></div>
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-200">About Me</h2>
+          <div className="w-24 h-1 bg-primary mx-auto mt-4"></div>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* ... Your existing left and right columns (narrative and photo) go here ... */}
+          {/* === Left Column: The Narrative === */}
+          <div className="text-lg text-slate-400 space-y-6">
+            <p>
+              [**YOUR PARAGRAPH 1 HERE.**]
+            </p>
+            <p>
+              [**YOUR PARAGRAPH 2 HERE.**]
+            </p>
+            <p className="text-slate-300 font-semibold">Here are a few technologies I’ve been working with recently:</p>
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-2 font-mono text-sm">
+              <li className="flex items-center"><CheckCircle className="w-4 h-4 mr-2 text-primary" /> Java & Spring Boot</li>
+              <li className="flex items-center"><CheckCircle className="w-4 h-4 mr-2 text-primary" /> Microservices</li>
+              <li className="flex items-center"><CheckCircle className="w-4 h-4 mr-2 text-primary" /> PostgreSQL</li>
+              <li className="flex items-center"><CheckCircle className="w-4 h-4 mr-2 text-primary" /> Hibernate</li>
+              <li className="flex items-center"><CheckCircle className="w-4 h-4 mr-2 text-primary" /> Docker</li>
+              <li className="flex items-center"><CheckCircle className="w-4 h-4 mr-2 text-primary" /> Kafka</li>
+            </ul>
           </div>
-
-          {/* Main content */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            {/* Text content */}
-            <div className="space-y-6 animate-slide-in">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                I am a dedicated and results-oriented Software Engineer with a strong foundation in backend development, 
-                currently pursuing my Bachelor's in Computer Engineering at LDRP-ITR. My journey in technology is driven 
-                by a passion for understanding how complex systems work and a desire to build high-performance applications.
-              </p>
-              
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                My professional experience at companies like InstaCloud Solutions and TatvaSoft has allowed me to bridge 
-                academic theory with practical application. I've engineered RESTful APIs with role-based access control, 
-                optimized PostgreSQL database queries to improve efficiency by over 30%, and thrived in Agile environments.
-              </p>
-              
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Beyond my core skills in the Spring ecosystem, I am deeply interested in distributed systems and am 
-                actively expanding my expertise in microservices architecture, event-driven communication with tools 
-                like Kafka, and containerization with Docker.
-              </p>
+          {/* === Right Column: The Visuals === */}
+          <div className="space-y-8">
+            <div className="group relative w-full max-w-sm mx-auto">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-500 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+              <img src={profilePhoto} alt="Om Rathod" className="relative w-full h-auto object-cover rounded-lg shadow-lg" />
             </div>
-
-            {/* Profile image placeholder */}
-            <div className="relative animate-fade-in">
-              <div className="w-full h-96 bg-gradient-card rounded-2xl shadow-medium flex items-center justify-center">
-                <div className="text-center text-muted-foreground">
-                  <div className="w-32 h-32 bg-primary/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <Code size={48} className="text-primary" />
-                  </div>
-                  <p className="text-sm">Om Rathod</p>
-                </div>
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+              <div className="bg-card p-4 rounded-lg"><Cpu size={28} className="mx-auto mb-2 text-primary" /><h4 className="font-semibold text-slate-200">Scalable Architecture</h4></div>
+              <div className="bg-card p-4 rounded-lg"><Code size={28} className="mx-auto mb-2 text-primary" /><h4 className="font-semibold text-slate-200">Clean Code</h4></div>
+              <div className="bg-card p-4 rounded-lg"><Lightbulb size={28} className="mx-auto mb-2 text-primary" /><h4 className="font-semibold text-slate-200">Problem Solving</h4></div>
             </div>
-          </div>
-
-          {/* Highlights grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {highlights.map((highlight, index) => {
-              const Icon = highlight.icon;
-              return (
-                <Card key={index} className="bg-gradient-card border-0 shadow-soft hover:shadow-medium transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <CardContent className="p-6 text-center">
-                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Icon size={32} className="text-primary" />
-                    </div>
-                    <h3 className="font-semibold mb-2 text-foreground">{highlight.title}</h3>
-                    <p className="text-sm text-muted-foreground">{highlight.description}</p>
-                  </CardContent>
-                </Card>
-              );
-            })}
           </div>
         </div>
       </div>
+      
+      {/* ADD THE NEW MARQUEE COMPONENT HERE */}
+      {/* <TechMarquee /> */}
+
     </section>
   );
 };

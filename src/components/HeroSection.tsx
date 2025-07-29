@@ -1,6 +1,7 @@
+// src/components/HeroSection.tsx
 import { Button } from '@/components/ui/button';
-import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
-import heroBackground from '@/assets/hero-background.jpg';
+import { Download, ArrowRight, Github, Linkedin, Mail, ArrowDown } from 'lucide-react';
+import heroBackground from '@/assets/hero-background.jpg'; // Assuming you still want to use this image
 
 const HeroSection = () => {
   const scrollToSection = (sectionId: string) => {
@@ -14,83 +15,88 @@ const HeroSection = () => {
     <section
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
-      style={{
-        backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.1), rgba(14, 165, 233, 0.1)), url(${heroBackground})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
-      }}
     >
-      {/* Background overlay */}
-      <div className="absolute inset-0 bg-gradient-hero opacity-90"></div>
+      {/* Background Image and Dark Overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        style={{ backgroundImage: `url(${heroBackground})` }}
+      ></div>
+      <div 
+        // This overlay is the key to making the image transparent and fitting the dark theme
+        className="absolute inset-0"
+        style={{ backgroundColor: 'rgba(10, 25, 47, 0.90)' }} 
+      ></div>
       
       {/* Content */}
       <div className="container mx-auto px-4 text-center relative z-10">
         <div className="max-w-4xl mx-auto animate-fade-in">
-          {/* Main heading */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
-            Hello, I'm{' '}
-            <span className="bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+          
+          {/* Main heading - adapted for the new theme */}
+          <h3 className="text-5xl md:text-6xl font-bold mb-6 text-slate-200">
+            Hi, I'm{' '}
+            <span className="text-white">
               Om Rathod
             </span>
-          </h1>
+          </h3>
           
-          {/* Subtitle */}
-          <h2 className="text-2xl md:text-3xl font-light mb-8 text-blue-100">
-            Software Engineer | Backend & Microservices Specialist
+          {/* Subtitle - adapted for the new theme */}
+          <h2 className="text-2xl md:text-3xl font-light mb-8 text-slate-300">
+             A passionalte Java Developer eager to build scalable, real-world applications.
           </h2>
           
-          {/* Description */}
-          <p className="text-lg md:text-xl mb-12 text-blue-50 max-w-2xl mx-auto leading-relaxed">
-            I build robust and scalable backend systems using Java, Spring Boot, and modern cloud technologies.
-            Passionate about architecting efficient microservices and writing clean code to solve complex, real-world problems.
+          {/* Description - adapted for the new theme */}
+          <p className="text-lg md:text-xl mb-12 text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            From microservices to full-stack projects, I love turning complex ideas into clean, functional code.
+Hands-on with Spring Boot, Docker, REST APIs, and Agile workflows to build solid backend solutions.
+Curious by nature, quick to learn, and always ready to tackle new challenges with a detail-focused mindset
           </p>
+
+          {/* NEW: Job seeking statement */}
+          {/* <p className="text-md mb-10 text-slate-400 max-w-2xl mx-auto">
+            Currently open to full-time Software Engineer roles in Ahmedabad, Gandhinagar, or Pune — let's build something impactful together.
+
+
+          </p> */}
+          <p className="text-white mb-10 text-slate-400 max-w-3xl mx-auto">
+  Currently open to full-time Software Engineer roles in{" "}
+  <span className="text-lg text-white font-semibold">Ahmedabad</span>,{" "}
+  <span className="text-lg text-white font-semibold">Gandhinagar</span> and{" "}
+  <span className="text-lg text-white font-semibold">Pune</span> — let's build something impactful together.
+</p>
+
           
-          {/* Action buttons */}
-          <div className="flex justify-center mb-16">
-            <Button
-              size="lg"
-              onClick={() => scrollToSection('projects')}
-              className="bg-white text-primary hover:bg-blue-50 hover:shadow-glow transition-all duration-300 font-semibold px-8 py-3"
-            >
-              See My Projects
+          {/* Action buttons - UPDATED */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+            <Button asChild size="lg" className="w-full sm:w-auto">
+              <a href="https://drive.google.com/file/d/1PEyOT1qRF-9H684WaFAA4n9IGakNjeLs/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <Download className="mr-2 h-5 w-5" />
+                My Resume
+              </a>
             </Button>
-
-            <Button></Button>
+            <Button variant="secondary" size="lg" onClick={() => scrollToSection('projects')} className="w-full sm:w-auto">
+              My Projects
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
           </div>
-
           
-          {/* Social links */}
+          {/* Social links - adapted for the new theme */}
           <div className="flex justify-center space-x-6 mb-16">
-            <a
-              href="https://github.com/Om357"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-110"
-            >
-              <Github size={24} className="text-white" />
+            <a href="https://github.com/Om357" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition-transform hover:scale-110">
+              <Github size={28} />
             </a>
-            <a
-              href="https://www.linkedin.com/in/omrathod357/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-110"
-            >
-              <Linkedin size={24} className="text-white" />
+            <a href="https://www.linkedin.com/in/omrathod357/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition-transform hover:scale-110">
+              <Linkedin size={28} />
             </a>
-            <a
-              href="mailto:om.rathod2004.or@gmail.com"
-              className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-110"
-            >
-              <Mail size={24} className="text-white" />
+            <a href="mailto:om.rathod2004.or@gmail.com" className="text-slate-400 hover:text-primary transition-transform hover:scale-110">
+              <Mail size={28} />
             </a>
           </div>
         </div>
         
-        {/* Scroll indicator */}
+        {/* Scroll indicator - adapted for the new theme */}
         <button
           onClick={() => scrollToSection('about')}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white hover:text-blue-200 transition-colors duration-300 animate-float"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-400 hover:text-primary transition-colors animate-bounce"
         >
           <ArrowDown size={32} />
         </button>
