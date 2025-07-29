@@ -65,7 +65,7 @@ const Footer = () => {
             {/* Copyright */}
             <div className="text-center md:text-right text-gray-300">
               <p className="flex items-center justify-center md:justify-end">
-                Made with <Heart size={16} className="mx-1 text-red-400" /> in {currentYear}
+                Made in {currentYear}
               </p>
               <p className="text-sm mt-1">
                 © {currentYear} Om Rathod. All rights reserved.

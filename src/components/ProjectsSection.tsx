@@ -6,12 +6,12 @@ import { ExternalLink, Github } from 'lucide-react';
 const ProjectsSection = () => {
   const projects = [
     {
-      title: 'Microservices Patient Management System',
+      title: 'Patient Management System',
       description: 'A distributed system with auth, patient, billing, and analytics services. Features secure JWT authentication, gRPC & REST communication, and an event-driven pipeline using Kafka for real-time analytics.',
       image: 'photo-1486312338219-ce68d2c6f44d',
       technologies: ['Spring Boot', 'Microservices', 'gRPC', 'Kafka', 'Docker', 'JWT'],
       liveUrl: '',
-      githubUrl: 'https://github.com/Om357/Microservices-based-Patient-Management-System',
+      githubUrl: 'https://github.com/Om357/Patient_HUB',
       featured: true
     },
     {
