@@ -53,7 +53,7 @@ const ContactSection = () => {
       // 2. After a 2-second delay, reload the page to clear the form.
       setTimeout(() => {
         window.location.reload();
-      }, 2000); // 2000 milliseconds = 2 seconds
+      }, 6000); // 2000 milliseconds = 2 seconds
     }
   };
 
@@ -210,16 +210,9 @@ const ContactSection = () => {
                   <p className="mb-6 opacity-90">
                     Have an opportunity or a project in mind? Let's connect and create something amazing together.
                   </p>
-                  <Button
-                    variant="secondary"
-                    size="lg"
-                    className="bg-white text-primary hover:bg-gray-100 transition-all duration-300"
-                    asChild
-                  >
-                    <a href="mailto:om.rathod2004.or@gmail.com">
-                      Say Hello
-                    </a>
-                  </Button>
+                 <Button className="bg-primary hover:bg-primary-hover text-black shadow-lg hover:shadow-xl transition-all duration-300">
+  Say Hello
+</Button>
                 </CardContent>
               </Card>
             </div>

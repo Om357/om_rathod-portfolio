@@ -7,13 +7,13 @@ const SkillsSection = () => {
       title: 'Backend Development',
       skills: [
         'Java', 'Spring Boot', 'Spring Security', 'Microservices', 'REST APIs',
-        'Hibernate', 'gRPC', 'Kafka', 'Python', 'PostgreSQL', 'MongoDB'
+        'Hibernate', 'Kafka', 'Python', 'PostgreSQL', 'MongoDB'
       ]
     },
     {
       title: 'Frontend Development',
       skills: [
-        'Angular', 'HTML5', 'CSS3', 'JavaScript', 'TypeScript'
+         'HTML5', 'CSS3', 'JavaScript'
       ]
     },
     {
@@ -26,7 +26,7 @@ const SkillsSection = () => {
       title: 'Concepts & Methodologies',
       skills: [
         'Object-Oriented Programming (OOP)', 'Data Structures & Algorithms (DSA)', 
-        'Agile', 'Scrum', 'RESTful Architecture'
+        'Agile', 'Scrum', 'RESTful Architecture', 'Machine Learning'
       ]
     }
   ];
@@ -41,9 +41,9 @@ const SkillsSection = () => {
               Skills & Expertise
             </h2>
             <div className="w-24 h-1 bg-gradient-primary mx-auto mb-8"></div>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              A comprehensive toolkit for building modern backend systems
-            </p>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+            A practical skillset tailored for building modern, high-performance backend solutions.           
+             </p>
           </div>
 
           {/* Skills grid */}
@@ -55,18 +55,19 @@ const SkillsSection = () => {
                 style={{ animationDelay: `${categoryIndex * 0.1}s` }}
               >
                 <CardHeader>
-                  <CardTitle className="text-xl font-semibold text-foreground flex items-center">
+                  <CardTitle className="text-x1 font-semibold text-foreground flex items-center">
                     <div className="w-3 h-3 bg-primary rounded-full mr-3"></div>
                     {category.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-3">
                     {category.skills.map((skill, skillIndex) => (
                       <Badge
                         key={skillIndex}
                         variant="secondary"
-                        className="bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-default"
+                        className="bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300
+                         cursor-default text-base px-4 py-2"
                       >
                         {skill}
                       </Badge>
@@ -81,9 +82,9 @@ const SkillsSection = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
             {[
               { number: '4+', label: 'Major Projects' },
-              { number: '1+ Year', label: 'Professional Experience' },
-              { number: '97.8%', label: 'Research Model Accuracy' },
-              { number: '20+', label: 'Technical Skills' }
+              { number: '6 Months', label: 'Professional Experience' },
+              { number: '95%', label: 'Code Reliability' },
+              { number: '15+', label: 'Tech Stack Skills' }
             ].map((stat, index) => (
               <div 
                 key={index} 

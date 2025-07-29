@@ -26,7 +26,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-foreground text-background py-12">
+    <footer className="bg-gradient-to-br from-slate-900 to-slate-800 text-white py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 items-center">
@@ -34,12 +34,12 @@ const Footer = () => {
             <div className="text-center md:text-left">
               <button
                 onClick={scrollToTop}
-                className="text-2xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300"
+                className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent hover:scale-105 transition-transform duration-300"
               >
                 Om Rathod
               </button>
-              <p className="text-gray-300 mt-2">
-                Software Engineer
+              <p className="text-slate-300 mt-2">
+                Java Developer & Software Engineer
               </p>
             </div>
 
@@ -53,7 +53,7 @@ const Footer = () => {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-110"
+                    className="p-3 bg-primary/10 border border-primary/20 rounded-full hover:bg-primary hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/25"
                     aria-label={link.label}
                   >
                     <Icon size={20} />
@@ -63,7 +63,7 @@ const Footer = () => {
             </div>
 
             {/* Copyright */}
-            <div className="text-center md:text-right text-gray-300">
+            <div className="text-center md:text-right text-slate-300">
               <p className="flex items-center justify-center md:justify-end">
                 Made in {currentYear}
               </p>
@@ -74,7 +74,7 @@ const Footer = () => {
           </div>
 
           {/* Bottom border */}
-          <div className="mt-8 pt-8 border-t border-white/10 text-center text-sm text-gray-400">
+          <div className="mt-12 pt-8 border-t border-slate-700 text-center text-sm text-slate-400">
             <p>
               Designed & Built by Om Rathod
             </p>
