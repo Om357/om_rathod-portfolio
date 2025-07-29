@@ -47,7 +47,7 @@ const ContactSection = () => {
       // 1. Always show the "Message sent!" toast to the user.
       toast({
         title: "Message sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+        description: "Thank you for reaching out. I'll get back to you soon, Mail me or DM in LinkedIn for early Response.",
       });
 
       // 2. After a 2-second delay, reload the page to clear the form.
@@ -170,7 +170,7 @@ const ContactSection = () => {
                 </h3>
                 <p className="text-muted-foreground leading-relaxed mb-8">
                   I'm always interested in hearing about new opportunities and exciting projects. 
-                  Whether you have a question or just want to say hi, I'll do my best to get back to you!
+                  Whether you have a Job Opportunity or just want to ask any questions, kindly reach me through Mail, I'll do my best to get back to you!
                 </p>
               </div>
 
