@@ -48,6 +48,7 @@ const ContactSection = () => {
       toast({
         title: "Message sent!",
         description: "Thank you for reaching out. I'll get back to you soon, Mail me or DM in LinkedIn for early Response.",
+
       });
 
       // 2. After a 2-second delay, reload the page to clear the form.
@@ -200,21 +201,30 @@ const ContactSection = () => {
                   );
                 })}
               </div>
+<Card className="bg-gradient-primary border-0 shadow-medium text-white">
+  <CardContent className="p-8 text-center">
+    <h4 className="text-xl font-semibold mb-4">
+      Ready to start your project?
+    </h4>
+    <p className="mb-6 opacity-90">
+      Have an opportunity or a project in mind? Let's connect and create something amazing together.
+    </p>
+    <Button
+      asChild
+      className="bg-primary hover:bg-primary-hover text-black shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+    >
+      <a
+        href="mailto:om.rathod2004.or@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Send me an email"
+      >
+        Say Hello
+      </a>
+    </Button>
+  </CardContent>
+</Card>
 
-              {/* Call to action */}
-              <Card className="bg-gradient-primary border-0 shadow-medium text-white">
-                <CardContent className="p-8 text-center">
-                  <h4 className="text-xl font-semibold mb-4">
-                    Ready to start your project?
-                  </h4>
-                  <p className="mb-6 opacity-90">
-                    Have an opportunity or a project in mind? Let's connect and create something amazing together.
-                  </p>
-                 <Button className="bg-primary hover:bg-primary-hover text-black shadow-lg hover:shadow-xl transition-all duration-300">
-  Say Hello
-</Button>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>
