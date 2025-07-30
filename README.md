@@ -3,8 +3,7 @@
 
 # Om Rathod - Personal Portfolio Website
 
-![Portfolio Hero Section](./public/placeholder.svg)
-*(**Action Required:** Replace `placeholder.svg` in the line above with a path to a screenshot of your portfolio, e.g., `./screenshot.png`. Add a screenshot file to the root of your project.)*
+![Portfolio Hero Section](./screenshot.png)
 
 <p align="center">
   <a href="[YOUR_VERCEL_APP_URL]" target="_blank">
